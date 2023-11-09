@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Audio File Comparison</title>
+</head>
+<body>
+	<h1>Audio File Comparison</h1>
+	<form action="/" method="post" enctype="multipart/form-data">
+		<label for="file1">Select File 1:</label>
+		<input type="file" name="file1"><br>
+
+		<label for="file2">Select File 2:</label>
+		<input type="file" name="file2"><br>
+
+		<label for="n_subbands">Number of Subbands:</label>
+		<input type="number" name="n_subbands" value="20" min="1"><br>
+
+		<label for="n_neighbors">Number of Neighbors:</label>
+		<input type="number" name="n_neighbors" value="5" min="1"><br>
+
+		<label for="subsegment_duration">Subsegment Duration (seconds):</label>
+		<input type="number" name="subsegment_duration" value="5" min="1"><br>
+
+		<input type="submit" value="Compare Files"><br>
+
+		{% if similarity_score %}
+		<p>Similarity Score: {{ similarity_score }}</p>
+		{% endif %}
+	</form>
+</body>
+</html>
